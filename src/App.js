@@ -18,9 +18,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/roles" element={<Roles />} />
-          <Route path="/orders" element={<Waiter />} />
-          <Route path="/cook" element={<Chef />} />
-          <Route path="/management" element={<Administrator />} />
+          <Route path="/waiter" element={<Waiter />} />
+          <Route path="/chef" element={<Chef />} />
+          <Route path="/boss" element={<Administrator />} />
           <Route path="*" element={<NotFoundPage/>}/>
         </Routes>
       </BrowserRouter>

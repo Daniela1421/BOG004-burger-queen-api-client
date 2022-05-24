@@ -1,9 +1,12 @@
 import React from 'react'
+import Logo from '../images/logo.svg'
+
 
 const Restaurant = () =>  {
   return (
     <header>
-    <h2> Logo</h2>
+    <img className="logo" src={Logo} alt='Logo'></img>
+
     <h1> BURGER QUEEN </h1>
     </header>
   )
