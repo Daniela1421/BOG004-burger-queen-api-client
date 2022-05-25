@@ -26,8 +26,7 @@ const Login = () =>  {
     headers: {
       "Content-Type": "application/json",
     },
-  })
-  .then((response) => {
+  }).then((response) => {
     console.log('respuesta: ', response);
     if(!response.ok){
       throw Error("Confirmar email y contraseña");
