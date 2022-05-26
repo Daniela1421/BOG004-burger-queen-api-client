@@ -11,9 +11,9 @@ const Roles = () => {
     return (
         <div className='roles'>
             <Restaurant />
-            <button className='input-roles'  onClick={()=>handleClick('/chef')}> Jefe de cocina  </button>
-            <button className='input-roles'  onClick={()=>handleClick('/boss')}> Administrador  </button>
-            <button className='input-roles'  onClick={()=>handleClick('/waiter')}> Mesero  </button>
+            <button className='input-roles'  onClick={()=>handleClick('/chef')}> JEFE DE COCINA  </button>
+            <button className='input-roles'  onClick={()=>handleClick('/boss')}> ADMINISTRADOR  </button>
+            <button className='input-roles'  onClick={()=>handleClick('/waiter')}> MESERO  </button>
 
         </div>
     )

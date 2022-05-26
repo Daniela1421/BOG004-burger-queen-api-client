@@ -43,16 +43,17 @@ h3 {
 
 .input-roles{
   display: flex;
-  flex-direction: column;
+
   justify-content: center;
   align-items: center;
   color: #f6f3ff;
-  font-size: 1.5em;
+  font-size: 1em;
   background-color: rgba(0, 0, 0, 0.701);
   border: 1px solid  goldenrod;
-  width: 20em;
+  width: 9.8em;
   height: 8em; 
   margin: 1em;
+  letter-spacing: 1px;
 }
 
 .logo {
