@@ -32,13 +32,20 @@ const validateHttp = (data) => {
   })
   .then(response => {
     console.log('Success:', response)
-    if(response.accesToken && response.user.roles.admin === false){
-      //sessionStorage.setItem('user', response)
+    localStorage.setItem('user', response.accessToken)
+    console.log('ROLES', response.user.roles)
+    if(response.accessToken && response.user.roles.admin === false){
+      let user = localStorage.getItem('user')
+      console.log("if: ", user)
+  
       navigate('/roles')
-    } else if (response.accesToken && response.user.roles.admin === true){
+    } else if (response.accessToken && response.user.roles.admin === true){
       navigate('/boss')
+      let user = localStorage.getItem('user')
+      console.log("else if: ", user)
     }else{
-      
+      let user = localStorage.getItem('user')
+      console.log("else: ", user)
     }
     
   })
@@ -63,7 +70,7 @@ const validateHttp = (data) => {
         <h3> PASSWORD </h3>
         <input className='input-form' type="password"  onChange={(e) => {setPassword(e.target.value);}}/>
         </div>
-        <button className='input-login' onClick={handleClick()}>SIGN IN</button>
+        <button className='input-login' onClick={handleClick}>SIGN IN</button>
     </div>
   )
 }
