@@ -7,6 +7,7 @@ import NotFoundPage from "./viewPages/NotFoundPage";
 import Waiter from "./viewPages/Waiter";
 import Chef from "./viewPages/Chef";
 import Administrator from "./viewPages/Administrator";
+import RequireAuth from "./components/RequireAuth";
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
             <Route path="/roles" element={<Roles />} />
             <Route path="/waiter" element={<Waiter />} />
             <Route path="/chef" element={<Chef />} />
-            <Route path="/boss" element={<Administrator />} />
+            <Route path="/boss" element={<RequireAuth><Administrator/></RequireAuth>} />
            
             <Route path="*" element={<NotFoundPage/>}/>
           
