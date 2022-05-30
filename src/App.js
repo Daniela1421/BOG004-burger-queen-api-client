@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./viewPages/Login";
-import Roles from "./viewPages/Roles";
+//import Roles from "./viewPages/Roles";
 import NotFoundPage from "./viewPages/NotFoundPage";
 // import Navigation from "./components/Navigation";
 import Waiter from "./viewPages/Waiter";
@@ -19,9 +19,9 @@ const App = () => {
         <Routes>
           <Route path="" element={<Login />} />
           
-            <Route path="/roles" element={<Roles />} />
-            <Route path="/waiter" element={<Waiter />} />
-            <Route path="/chef" element={<Chef />} />
+            {/* <Route path="/roles" element={<RequireAuth><Roles /></RequireAuth>} /> */}
+            <Route path="/waiter" element={<RequireAuth><Waiter /></RequireAuth>} />
+            <Route path="/chef" element={<RequireAuth><Chef /></RequireAuth>} />
             <Route path="/boss" element={<RequireAuth><Administrator/></RequireAuth>} />
            
             <Route path="*" element={<NotFoundPage/>}/>

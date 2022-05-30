@@ -2,10 +2,10 @@ import Restaurant from "../components/Restaurant";
 import { useNavigate } from "react-router-dom";
 import React, { useState} from 'react';
 
-
 const Login = () =>  {
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
+const [error, setError] = useState('');
 const navigate = useNavigate(); 
 
 const urlApi = 'http://localhost:8080';
@@ -15,10 +15,8 @@ const data = {
   "password": password
 };
 
-
 const validateHttp = (data) => {
  
-  
   fetch(`${urlApi}/login`, {
     method: 'POST', 
     body: JSON.stringify(data),
@@ -26,91 +24,70 @@ const validateHttp = (data) => {
       'Content-Type': 'application/json'
     }
   }).then(res => {
-    console.log('RES', res);
-    //console.log('JSON', res.json())
     return res.json()
   })
   .then(response => {
     console.log('Success:', response)
-    localStorage.setItem('user', response.accessToken)
-    console.log('ROLES', response.user.roles)
-    if(response.accessToken && response.user.roles.admin === false){
-      let user = localStorage.getItem('user')
-      console.log("if: ", user)
-  
-      navigate('/roles')
+    localStorage.setItem('userToken', response.accessToken)
+    if(response.accessToken && response.user.roles.waiter === true){
+      navigate('/waiter')
+      localStorage.setItem('userRol', "waiter")
+    } else if (response.accessToken && response.user.roles.chef === true){
+      navigate('/chef')
+      localStorage.setItem('userRol', "chef")
     } else if (response.accessToken && response.user.roles.admin === true){
-      navigate('/boss')
-      let user = localStorage.getItem('user')
-      console.log("else if: ", user)
+      navigate('/boss') 
+      //localStorage.setItem('userRol', "boss")
     }else{
-      let user = localStorage.getItem('user')
-      console.log("else: ", user)
+      switch (response) {
+        case "Email and password are required":
+          setError("Email and password are required")
+          break;
+        case "Email format is invalid":
+          console.log("format");
+          setError("Email format is invalid")
+          break;
+        case "Incorrect password":
+          console.log("password");
+          setError("Incorrect password")
+          break;
+        case "Password is too short":
+          console.log("short");
+          setError("Password is too short")
+          break;
+        case "Cannot find user":
+          console.log("no find user");
+          setError("Cannot find user")
+          break;
+        default:
+          break;
+      }
     }
     
   })
   .catch(error => console.error('Error:', error))
 }
- const handleClick = () => {
+
+const handleClick = () => {
   validateHttp(data)
 }
 
-  // const handleClick = () => {
-    //   navigate('/roles')
-    // }
-    //validateHttp(data)
-    
+//localStorage.removeItem('userRol')
+ 
     return (
       <div className='login'>
         <Restaurant/>
         <h2>LOGIN</h2>
         <div>
         <h3> EMAIL </h3>
-        <input className='input-form' type="text" onChange={(e) => { setEmail(e.target.value);}}/>
+        <input className='input-form' type="text" value={email} onChange={(e) => { setEmail(e.target.value);}}/>
         <h3> PASSWORD </h3>
-        <input className='input-form' type="password"  onChange={(e) => {setPassword(e.target.value);}}/>
+        <input className='input-form' type="password" value={password} onChange={(e) => {setPassword(e.target.value);}}/> 
         </div>
+        <h3 className="messajeError">{error}</h3>
         <button className='input-login' onClick={handleClick}>SIGN IN</button>
     </div>
   )
 }
 
 export default Login;
-
-
-// const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-//   const handle = () => {
- 
-//     const data = {
-//       "email": email,
-//       "password": password
-//   }
-//     console.log(email, password);
-//     loginHttp(data);
-//   };
-
-//   let urlMock = "http://localhost:8080";
-//   const loginHttp = (logObj) => {
-//     let url = urlMock + "/";
-
-
-//   return fetch(url, {
-//     method: "POST",
-//     body: JSON.stringify(logObj),
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   })
-//   .then((response) => {
-//     console.log('respuesta: ', response);
-//     if(!response.ok){
-//       throw Error("Confirmar email y contraseña");
-//     }
-//           return response.json();
-//   })
-//   .then(logObj => {
-//     console.log('success: ', logObj);
-//   })
-// }
-// onChange={(e) => { setEmail(e.target.value);}}     onChange={(e) => {setPassword(e.target.value);}}
