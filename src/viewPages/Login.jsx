@@ -80,11 +80,11 @@ const handleClick = () => {
         <h2>LOGIN</h2>
         <div>
         <h3> EMAIL </h3>
-        <input className='input-form' type="text" value={email} onChange={(e) => { setEmail(e.target.value);}}/>
+        <input data-testid='input-email' className='input-form' type="text" value={email} onChange={(e) => { setEmail(e.target.value);}}/>
         <h3> PASSWORD </h3>
-        <input className='input-form' type="password" value={password} onChange={(e) => {setPassword(e.target.value);}}/> 
+        <input data-testid='input-password' className='input-form' type="password" value={password} onChange={(e) => {setPassword(e.target.value);}}/> 
         </div>
-        <h3 className="messajeError">{error}</h3>
+        {error && <h3 data-testid='login-error' className="messajeError">{error}</h3>}
         <button className='input-login' onClick={handleClick}>SIGN IN</button>
     </div>
   )

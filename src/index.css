@@ -73,7 +73,7 @@ h3 {
   border-right: 5px;
   border-top: 5px;
   outline: none;
-  border-color: yellow;
+  border-color: goldenrod;
 }
 
 .input-login {
@@ -84,7 +84,7 @@ font-size: 1em;
  outline: none;
  border: 0;
  color: white;
- background-color: rgba(0, 0, 0, 0.701);
+ background-color: rgba(0, 0, 0, 0.3);
  border: 1px solid  goldenrod;
 
 }
