@@ -25,10 +25,10 @@ h3 {
 
 }
 
-.login, .roles{
+.login, .waiter{
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; 
+  justify-content: center; 
   align-items: center;
   width: 25em;
   height: 60vh;
@@ -41,9 +41,46 @@ h3 {
  background-blend-mode: multiply,multiply;
  letter-spacing: 1.5px;
  border-bottom: goldenrod solid 3px;
+ padding-top: 0.5 em;
 }
 
-.input-roles{
+.waiter{
+  height: 80vh;
+  justify-content: flex-start;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid black;
+  width: 24em;
+}
+
+.menu{
+  display: flex;
+  flex-direction: column;
+}
+
+#logout, #breakfast, #today-menu{
+  width: 8em;
+  height: 3em;
+  margin: 0.3em;
+  font-size: 13px;
+}
+
+#view-logo{
+  width: 4em;
+}
+#nameRestaurant{
+  font-size: 0.8em;
+}
+
+/* .waiter{
+  background: black;
+} */
+
+/* .input-roles{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,13 +93,14 @@ h3 {
   margin: 1em;
   letter-spacing: 1px;
   
-}
+} */
+
 
 .logo {
-
   width: 4.5em;
   margin-left: 3.5em;
-  margin-top: 0.5em
+  margin-top: 0.5em;
+  margin-left: 1.5em;
 }
 
 .input-form {
@@ -76,7 +114,7 @@ h3 {
   border-color: goldenrod;
 }
 
-.input-login {
+.input-buttons {
 font-size: 1em;
  width: 14em;
  height: 2em;
@@ -89,22 +127,83 @@ font-size: 1em;
 
 }
 
+#sign-in{
+  margin-top: 0.5em;
+}
+
 .error{
   width: 100vh; 
   height: 100%; 
 }
 
-/* .login p .messageError {
-  color: red;
-} */
- 
+.messageError {
+  color: rgb(248, 225, 21);
+}
+
+.info ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 22em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid  goldenrod;
+  border-radius: 5px;
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+.resume ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 13em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid  goldenrod;
+  border-radius: 5px;
+  padding: 0.5em 1em 0.5em 10em;
+}
+
+.send-cancel{
+  display: flex;
+  flex-direction: row;
+  gap: 4em;
+  width: 18em;
+  margin: 1em;
+}
+
 @media (min-width: 768px) {
-  .login, .roles{
+  .login {
     width: 45em;
     height: 60vh;
     background-position: center;
     letter-spacing: 5px;
   }
+  .waiter {
+    width: 80em;
+    height: 80vh;
+    background-position: center;
+    display: flex;
+    justify-content: space-around;
+    letter-spacing: 5px;
+  }
+
+  .header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+    width: 50em;
+    
+  }
+
+  .menu{
+    display: flex;
+    flex-direction: row;
+  }
+
   .input-form {
     width: 30em;
   }

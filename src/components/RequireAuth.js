@@ -13,7 +13,7 @@ const RequireAuth = ({children}) => {
         return <Chef/>
     } else if(isLogin !== null){
         return children
-    } else{
+    } else if(isLogin === null){
         return <Navigate to="/"/>
     }      
 }

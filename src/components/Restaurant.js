@@ -4,10 +4,10 @@ import Logo from '../images/logo.svg'
 
 const Restaurant = () =>  {
   return (
-    <header>
-    <img className="logo" src={Logo} alt='Logo'></img>
+    <header className='restaurant'>
+    <img className="logo" id='view-logo' src={Logo} alt='Logo'></img>
 
-    <h1> BURGER QUEEN </h1>
+    <h1 id='nameRestaurant'> BURGER QUEEN </h1>
     </header>
   )
 }
