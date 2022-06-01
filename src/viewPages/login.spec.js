@@ -8,15 +8,14 @@ import {createMemoryHistory} from 'history'
 import {Router} from 'react-router-dom'
 
 describe('Component Login', () => {
-	
-
 	it('Error message', async () => {
 		const history = createMemoryHistory()
-  render(
+
+		render(
 			<Router location={history.location} navigator={history}>
-      <Login />
-    </Router>
-		)
+				<Login />
+			</Router>
+				)
 		const emailInput = screen.getByTestId('input-email')
 		const passwordInput = screen.getByTestId('input-password')
 		fireEvent.change(emailInput, {target: {value: 'probando@gmail.com'}})
@@ -30,10 +29,10 @@ describe('Component Login', () => {
 
 	it('validate credentials', async () => {
 		const history = createMemoryHistory()
-  render(
+ 		 render(
 			<Router location={history.location} navigator={history}>
-      <Login />
-    </Router>
+      			<Login />
+    		</Router>
 		)
 		const emailInput = screen.getByTestId('input-email')
 		const passwordInput = screen.getByTestId('input-password')
@@ -45,5 +44,5 @@ describe('Component Login', () => {
 		await waitFor(() => error = screen.getByTestId('login-error'))
 		expect(error.textContent).toBe('Cannot find user')
 	})
-	;)
-}
+	
+});

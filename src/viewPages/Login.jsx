@@ -62,6 +62,7 @@ const validateHttp = (data) => {
         default:
           break;
       }
+      localStorage.removeItem('userToken')
     }
     
   })
@@ -84,8 +85,8 @@ const handleClick = () => {
         <h3> PASSWORD </h3>
         <input data-testid='input-password' className='input-form' type="password" value={password} onChange={(e) => {setPassword(e.target.value);}}/> 
         </div>
-        {error && <h3 data-testid='login-error' className="messajeError">{error}</h3>}
-        <button className='input-login' onClick={handleClick}>SIGN IN</button>
+        {error && <h3 data-testid='login-error' className="messageError">{error}</h3>}
+        <button className='input-buttons'id="sign-in" onClick={handleClick}>SIGN IN</button>
     </div>
   )
 }
