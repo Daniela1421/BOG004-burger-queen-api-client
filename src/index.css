@@ -153,6 +153,37 @@ font-size: 1em;
   padding: 0.5em 1em 0.5em 1em;
 }
 
+.user-name{
+  width: 6em;
+}
+
+.data{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 10em;
+  margin: 0;
+}
+.data ul {
+  list-style: none;
+}
+.infoProducts{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: start;
+  margin: 0;
+}
+.amount{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-items: end;
+  align-items: start;
+}
+.amount h4{
+  margin: 0;
+}
+
+
 .resume ul{
   list-style: none;
   display: flex;
@@ -195,7 +226,7 @@ font-size: 1em;
     flex-direction: row;
     justify-content: space-between;
     border: 1px solid black;
-    width: 50em;
+    width: 70em;
     
   }
 
@@ -217,5 +248,47 @@ h1 {
   width: 4em;
   margin-left: 7em;
   margin-top: 1.5em
+}
+
+.info ul{
+  width: 68em;
+  border: 1px solid black; 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.data{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 70em;
+  
+}
+.data ul {
+  list-style: none;
+  width: 60em;
+}
+.infoProducts{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  
+}
+.amount{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-items: end;
+  align-items: start;
+}
+.amount h4{
+  margin: 0;
+}
+
+.resume ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40em;
+
 }
 }

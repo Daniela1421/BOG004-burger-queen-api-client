@@ -27,7 +27,7 @@ const validateHttp = (data) => {
     return res.json()
   })
   .then(response => {
-    console.log('Success:', response)
+    // console.log('Success:', response)
     localStorage.setItem('userToken', response.accessToken)
     if(response.accessToken && response.user.roles.waiter === true){
       navigate('/waiter')
@@ -44,19 +44,19 @@ const validateHttp = (data) => {
           setError("Email and password are required")
           break;
         case "Email format is invalid":
-          console.log("format");
+          //console.log("format");
           setError("Email format is invalid")
           break;
         case "Incorrect password":
-          console.log("password");
+          //console.log("password");
           setError("Incorrect password")
           break;
         case "Password is too short":
-          console.log("short");
+          //console.log("short");
           setError("Password is too short")
           break;
         case "Cannot find user":
-          console.log("no find user");
+          //console.log("no find user");
           setError("Cannot find user")
           break;
         default:
