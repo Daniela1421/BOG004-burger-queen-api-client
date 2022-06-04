@@ -41,23 +41,23 @@ const validateHttp = (data) => {
     }else{
       switch (response) {
         case "Email and password are required":
-          setError("Email and password are required")
+          setError("EL EMAIL Y CONTRASEÑA SON REUQUERIDOS")
           break;
         case "Email format is invalid":
           //console.log("format");
-          setError("Email format is invalid")
+          setError("EL FORMATO DE EMAIL ES INVALIDO")
           break;
         case "Incorrect password":
           //console.log("password");
-          setError("Incorrect password")
+          setError("CONTRASEÑA INCORRECTA")
           break;
         case "Password is too short":
           //console.log("short");
-          setError("Password is too short")
+          setError("LA CONTRASEÑA ES DEMASIADO CORTA")
           break;
         case "Cannot find user":
           //console.log("no find user");
-          setError("Cannot find user")
+          setError("USUARIO NO ENCONTRADO")
           break;
         default:
           break;
@@ -78,15 +78,15 @@ const handleClick = () => {
     return (
       <div className='login'>
         <Restaurant/>
-        <h2>LOGIN</h2>
+        <h2>ACCESO</h2>
         <div>
         <h3> EMAIL </h3>
         <input data-testid='input-email' className='input-form' type="text" value={email} onChange={(e) => { setEmail(e.target.value);}}/>
-        <h3> PASSWORD </h3>
+        <h3> CONTRASEÑA </h3>
         <input data-testid='input-password' className='input-form' type="password" value={password} onChange={(e) => {setPassword(e.target.value);}}/> 
         </div>
         {error && <h3 data-testid='login-error' className="messageError">{error}</h3>}
-        <button className='input-buttons'id="sign-in" onClick={handleClick}>SIGN IN</button>
+        <button className='input-buttons'id="sign-in" onClick={handleClick}>ENTRAR</button>
     </div>
   )
 }

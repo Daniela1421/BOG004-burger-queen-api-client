@@ -20,8 +20,12 @@ export default function Waiter() {
    
    .then(data => {
     const arrProducts = []
+    const arrayIDs = []
     data.forEach((products) => {
+
         if(products.type === menu){
+          let productsId = products.id;
+          arrayIDs.push(productsId)
           //console.log("products", products.name, products.image)
           const productsName = products.name; 
           arrProducts.push(productsName)
@@ -32,8 +36,10 @@ export default function Waiter() {
           arrProducts.push(productsName)
           setProducts(arrProducts);
          }
+
     })
-     console.log('Success:', data)
+    console.log(arrayIDs)
+     //console.log('Success:', data)
    })
     
    .catch(error => console.error('Error:', error))
@@ -47,8 +53,8 @@ export default function Waiter() {
       <div className='waiter'>
         <header className="header">
         <div className="menu">
-          <button className='input-buttons' id="breakfast" onClick={() => handleClick("Desayuno")} >BREAKFAST</button>
-          <button className='input-buttons' id="today-menu" onClick={() => handleClick("Almuerzo")}>TODAY'S MENU</button>
+          <button className='input-buttons' id="breakfast" onClick={() => handleClick("Desayuno")} >DESAYUNO</button>
+          <button className='input-buttons' id="today-menu" onClick={() => handleClick("Almuerzo")}>ALMUERZO</button>
         </div>
         <Restaurant/>
         <Logout/>
@@ -56,9 +62,9 @@ export default function Waiter() {
         <section className="Orders">
           <div className="info">
             <ul>
-              <li>CLIENT</li>
-              <li>PRODUCT</li>
-              <li>AMOUNT</li>
+              <li>CLIENTE</li>
+              <li>PRODUCTO</li>
+              <li>CANTIDAD</li>
             </ul>
           </div>
           <div className="data">
@@ -66,8 +72,8 @@ export default function Waiter() {
           <ul className="infoProducts">
             {products.map((product) =>
             <>
-            <input type="checkbox"/>
-            <li>{product}</li>
+            <input key={products.id} type="checkbox"/>
+            <li >{product}</li>
             <div className="amount">
             <button className='buttonAmount' id="add" /*onClick={() => handleClick("Desayuno")}*/ >+</button>
             <h4>1</h4>
@@ -82,8 +88,8 @@ export default function Waiter() {
         <section>
           <div className="resume">
               <ul>
-                <li>RESUME</li>
-                <li>PRICE</li>
+                <li>RESUMEN</li>
+                <li>PRECIO</li>
               </ul>
           </div>
           <div>
@@ -91,8 +97,8 @@ export default function Waiter() {
           </div>
         </section>
         <section className="send-cancel">
-          <button className='input-buttons' /*onClick={handleClick}*/>SEND</button>
-          <button className='input-buttons' /*onClick={handleClick}*/>CANCEL</button>
+          <button className='input-buttons' /*onClick={handleClick}*/>ENVIAR</button>
+          <button className='input-buttons' /*onClick={handleClick}*/>CANCELAR</button>
         </section>
     </div>
   )

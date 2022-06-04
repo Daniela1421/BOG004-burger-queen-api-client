@@ -53,7 +53,6 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid black;
   width: 24em;
 }
 
@@ -70,10 +69,11 @@ h3 {
 }
 
 #view-logo{
-  width: 4em;
+  width: 3em;
+  margin-left: 3em;
 }
 #nameRestaurant{
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 /* .waiter{
@@ -98,16 +98,14 @@ h3 {
 
 .logo {
   width: 4.5em;
-  margin-left: 3.5em;
-  margin-top: 0.5em;
-  margin-left: 1.5em;
+  margin-left: 2.5em;
 }
 
 .input-form {
   color: white;
   font-size: 1.2em; 
   background: transparent;
-  border-left: 5px;
+  border-left: 2px;
   border-right: 5px;
   border-top: 5px;
   outline: none;
@@ -154,14 +152,14 @@ font-size: 1em;
 }
 
 .user-name{
-  width: 6em;
+  width: 4.5em;
 }
 
 .data{
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  width: 10em;
+  width: 5em;
   margin: 0;
 }
 .data ul {
@@ -172,16 +170,25 @@ font-size: 1em;
   grid-template-columns: auto auto auto;
   align-items: start;
   margin: 0;
+  font-size: 15.8px;
 }
 .amount{
   display: grid;
   grid-template-columns: auto auto auto;
   justify-items: end;
   align-items: start;
+  font-size: 15px;
+  
 }
 .amount h4{
   margin: 0;
+
 }
+
+.buttonAmount{
+  width: 3em;
+}
+
 
 
 .resume ul{
@@ -206,15 +213,20 @@ font-size: 1em;
 }
 
 @media (min-width: 768px) {
-  .login {
-    width: 45em;
-    height: 60vh;
-    background-position: center;
-    letter-spacing: 5px;
+  .logo {
+    width: 2em;
+    margin-left: 4em;
+    
+  }
+  #nameRestaurant{
+    font-size: 1em;
+  }
+  .login{
+    width: 50em;
   }
   .waiter {
-    width: 80em;
-    height: 80vh;
+    width: 48em;
+    height: 95vh;
     background-position: center;
     display: flex;
     justify-content: space-around;
@@ -225,8 +237,7 @@ font-size: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 1px solid black;
-    width: 70em;
+    width: 45em;
     
   }
 
@@ -243,30 +254,25 @@ h1 {
   margin: 1.5px;
  font-size: 2em;
 }
-.logo {
 
-  width: 4em;
-  margin-left: 7em;
-  margin-top: 1.5em
-}
 
 .info ul{
-  width: 68em;
-  border: 1px solid black; 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 45em;
+  border: 1px solid goldenrod; 
 }
 .data{
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  width: 70em;
+  width: 45em;
   
 }
 .data ul {
   list-style: none;
-  width: 60em;
+  width: 45em;
 }
 .infoProducts{
   display: grid;
@@ -287,8 +293,20 @@ h1 {
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 40em;
-
+  justify-content: space-around;
+  width: 36em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid  goldenrod;
+  border-radius: 5px;
+  padding: 0.5em 1em 0.5em 10em;
 }
+.send-cancel{
+  display: flex;
+  flex-direction: row;
+  gap: 5em;
+  width: 30em;
+  margin: 1em;
+}
+
 }

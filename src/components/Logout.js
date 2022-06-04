@@ -9,7 +9,7 @@ export default function Logout() {
     }
 
   return (
-    <button className='input-buttons' id="logout" onClick={handleClick}> LOGOUT </button>
+    <button className='input-buttons' id="logout" onClick={handleClick}> SALIR </button>
   )
 }
 
