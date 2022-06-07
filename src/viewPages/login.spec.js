@@ -8,7 +8,7 @@ import {createMemoryHistory} from 'history'
 import {Router} from 'react-router-dom'
 
 describe('Component Login', () => {
-	it('Error message', async () => {
+	it.only('Error message', async () => {
 		const history = createMemoryHistory()
 
 		render(
@@ -20,10 +20,11 @@ describe('Component Login', () => {
 		const passwordInput = screen.getByTestId('input-password')
 		fireEvent.change(emailInput, {target: {value: 'probando@gmail.com'}})
 		fireEvent.change(passwordInput, {target: {value: '1234567890'}})
-		const btnLogin = screen.getByText('SIGN IN')
+		const btnLogin = screen.getByText('SIGN IN').trim()
 		fireEvent.click(btnLogin)
 		let error;
 		await waitFor(() => error = screen.getByTestId('login-error'))
+		 console.log('error: ',error.textContent)
 		expect(error.textContent).toBe('Cannot find user')
 	});
 

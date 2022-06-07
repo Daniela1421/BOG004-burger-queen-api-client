@@ -1,9 +1,10 @@
 import Logout from "../components/Logout";
 import Restaurant from "../components/Restaurant";
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 
 export default function Waiter() {
   const [products, setProducts] = useState([])
+  const [productsSelected, setProductsSelected] = useState([])
   const urlApi = 'http://localhost:8080';
 
   const validateHttpProducts = (menu) => {
@@ -26,19 +27,29 @@ export default function Waiter() {
         if(products.type === menu){
           let productsId = products.id;
           arrayIDs.push(productsId)
-          //console.log("products", products.name, products.image)
           const productsName = products.name; 
-          arrProducts.push(productsName)
+          let productsPrice = products.price;
+
+          arrProducts.push({
+            name: productsName,
+            price: productsPrice
+          })
           setProducts(arrProducts);
          } else if(products.type === menu){
           console.log("products almuerzo", products.name, products.image)
           const productsName = products.name; 
-          arrProducts.push(productsName)
+          let productsPrice = products.price;
+
+          arrProducts.push({
+            name: productsName,
+            price: productsPrice
+            })
           setProducts(arrProducts);
          }
 
     })
     console.log(arrayIDs)
+    console.log(arrProducts)
      //console.log('Success:', data)
    })
     
@@ -48,7 +59,12 @@ export default function Waiter() {
   const handleClick = (menu) => {
     validateHttpProducts(menu)
   }
-  
+ 
+ const handleSetProducts = (product) => {
+   console.log(product)
+   setProductsSelected([product].concat(productsSelected))
+ }
+   
   return (
       <div className='waiter'>
         <header className="header">
@@ -64,7 +80,7 @@ export default function Waiter() {
             <ul>
               <li>CLIENTE</li>
               <li>PRODUCTO</li>
-              <li>CANTIDAD</li>
+              <li>PRECIO</li>
             </ul>
           </div>
           <div className="data">
@@ -72,13 +88,12 @@ export default function Waiter() {
           <ul className="infoProducts">
             {products.map((product) =>
             <>
-            <input key={products.id} type="checkbox"/>
-            <li >{product}</li>
-            <div className="amount">
-            <button className='buttonAmount' id="add" /*onClick={() => handleClick("Desayuno")}*/ >+</button>
-            <h4>1</h4>
-            <button className='buttonAmount' id="decrease" /*onClick={() => handleClick("Almuerzo")}*/>-</button>
-            </div>
+            <button 
+            type="button"
+            className='add-products'
+            id="add-products" onClick={() => handleSetProducts(product)}>Agregar</button>
+            <li >{product.name}</li>
+            <li >{product.price}</li>
             </>
             )}
           </ul>
@@ -89,10 +104,15 @@ export default function Waiter() {
           <div className="resume">
               <ul>
                 <li>RESUMEN</li>
-                <li>PRECIO</li>
+                <li>CANTIDAD</li>
               </ul>
           </div>
           <div>
+          <div className="amount">
+            <button className='buttonAmount' id="add" /*onClick={() => handleClick("Desayuno")}*/ >+</button>
+            <h4>1</h4>
+            <button className='buttonAmount' id="decrease" /*onClick={() => handleClick("Almuerzo")}*/>-</button>
+            </div>
           <input className='user-name' type="text" placeholder="Products"/*value={email} onChange={(e) => { setEmail(e.target.value);}}*/ />
           </div>
         </section>
