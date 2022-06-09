@@ -153,6 +153,11 @@ font-size: 1em;
 
 .user-name{
   width: 4.5em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid  goldenrod;
+  border-radius: 4px;
+  text-align: center;
 }
 
 .data{
@@ -191,7 +196,7 @@ font-size: 1em;
 
 
 
-.resume ul{
+.resume ul, .total ul{
   list-style: none;
   display: flex;
   flex-direction: row;

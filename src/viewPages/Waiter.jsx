@@ -1,12 +1,17 @@
 import Logout from "../components/Logout";
 import Restaurant from "../components/Restaurant";
 import React, { useState } from 'react';
+import Delete from "../images/delete.svg"
+import add from "../images/add.png"
+import Counter from "../components/Counter";
 
 export default function Waiter() {
   const [products, setProducts] = useState([])
   const [productsSelected, setProductsSelected] = useState([])
+  const [client, setClient] = useState("")
+  // console.log("client", client)
+  // const UpdateClient = client; 
   const urlApi = 'http://localhost:8080';
-
   const validateHttpProducts = (menu) => {
 
     fetch(`${urlApi}/products`, {
@@ -21,34 +26,33 @@ export default function Waiter() {
    
    .then(data => {
     const arrProducts = []
-    const arrayIDs = []
+    // const arrayIDs = []
     data.forEach((products) => {
 
         if(products.type === menu){
-          let productsId = products.id;
-          arrayIDs.push(productsId)
           const productsName = products.name; 
           let productsPrice = products.price;
-
+          let productsId = products.id;
           arrProducts.push({
             name: productsName,
+            id: productsId,
             price: productsPrice
           })
           setProducts(arrProducts);
          } else if(products.type === menu){
-          console.log("products almuerzo", products.name, products.image)
+          //console.log("products almuerzo", products.name, products.image)
           const productsName = products.name; 
           let productsPrice = products.price;
-
+          let productsId = products.id;
           arrProducts.push({
             name: productsName,
+            id: productsId,
             price: productsPrice
             })
           setProducts(arrProducts);
          }
 
     })
-    console.log(arrayIDs)
     console.log(arrProducts)
      //console.log('Success:', data)
    })
@@ -61,9 +65,18 @@ export default function Waiter() {
   }
  
  const handleSetProducts = (product) => {
-   console.log(product)
+    console.log("handleSetProducts", product)
+    product.qty = 1
+  //  console.log("producto con concat", [product].concat(productsSelected) )
    setProductsSelected([product].concat(productsSelected))
  }
+
+ const handleDelete = (id) => {
+  // console.log("delete", id );
+  // console.log("delete filter", productsSelected.filter((item) => item.id !== id) )
+  const newArr = productsSelected.filter((item) => item.id !== id);
+  setProductsSelected(newArr);
+};
    
   return (
       <div className='waiter'>
@@ -80,24 +93,21 @@ export default function Waiter() {
             <ul>
               <li>CLIENTE</li>
               <li>PRODUCTO</li>
-              <li>PRECIO</li>
+              <li>PRECIO U.</li>
             </ul>
           </div>
           <div className="data">
-          <input type="text" className='user-name' placeholder="Enter customer name"/*value={email} onChange={(e) => { setEmail(e.target.value);}}*/ />
+          <input type="text" className='user-name' placeholder="CLIENTE" value={client} onChange={(e) => { setClient(e.target.value);}} />
           <ul className="infoProducts">
             {products.map((product) =>
-            <>
-            <button 
-            type="button"
-            className='add-products'
-            id="add-products" onClick={() => handleSetProducts(product)}>Agregar</button>
-            <li >{product.name}</li>
+            <div key={product.id}>
+            {/* <button type="button" className='add-products'id="add-products" onClick={() => handleSetProducts(product)}>Agregar</button> */}
+            <img className="add" id='add-product' src={add} alt='Agregar' onClick={() => !productsSelected.includes(product) && handleSetProducts(product)}></img>
+            <li>{product.name}</li>
             <li >{product.price}</li>
-            </>
+            </div>
             )}
           </ul>
-          
           </div>
         </section>
         <section>
@@ -105,15 +115,28 @@ export default function Waiter() {
               <ul>
                 <li>RESUMEN</li>
                 <li>CANTIDAD</li>
+                <li>PRECIO TOTAL</li>
               </ul>
           </div>
+          <h3>{client}</h3>
           <div>
-          <div className="amount">
-            <button className='buttonAmount' id="add" /*onClick={() => handleClick("Desayuno")}*/ >+</button>
-            <h4>1</h4>
-            <button className='buttonAmount' id="decrease" /*onClick={() => handleClick("Almuerzo")}*/>-</button>
+          <ul className="infoProductsResume">
+            {console.log("selected", productsSelected)}
+            {productsSelected.map((product) =>
+            <div key={product.id}>
+            <li>{product.name}</li>
+            <img className="delete" id='view-delete' src={Delete} alt='Delete' onClick={() => handleDelete(product.id)}></img>
+            <Counter price={product.price}/>
+            {/* <li >{product.price}</li> */ console.log(product)}
+            
             </div>
-          <input className='user-name' type="text" placeholder="Products"/*value={email} onChange={(e) => { setEmail(e.target.value);}}*/ />
+            )}
+          </ul>
+          </div>
+          <div className="total">
+              <ul>
+                <li>TOTAL</li>
+              </ul>
           </div>
         </section>
         <section className="send-cancel">
