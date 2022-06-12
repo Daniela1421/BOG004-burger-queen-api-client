@@ -2,14 +2,12 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   /* color: white; */
-  width: 100%;
-  height: 100vh;
-  background: rgb(109,9,121);
-  background: linear-gradient(175deg, rgba(109,9,121,0.8645833333333334) 0%, rgba(205,205,205,1) 100%);
+  background: rgb(123, 96, 176);
+
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: hidden;
+
 }
 
 h1{
@@ -26,26 +24,30 @@ h3 {
 }
 
 .login, .waiter{
+
   display: flex;
   flex-direction: column;
   justify-content: center; 
   align-items: center;
-  width: 25em;
-  height: 60vh;
+  margin-top: 1rem;
   color: white;
   background: #31313196 ;
   background-image: url("./images/illustration.svg");
   background-repeat: no-repeat;
-  background-position:bottom;
+  background-position:center;
   border-radius: 10px;
  background-blend-mode: multiply,multiply;
  letter-spacing: 1.5px;
  border-bottom: goldenrod solid 3px;
  padding-top: 2em;
 }
+.login{
+  width: 35rem;
+  height: 55rem;
+}
 
 .waiter{
-  height: 80vh;
+ 
   justify-content: flex-start;
 }
 
@@ -65,7 +67,7 @@ h3 {
   width: 8em;
   height: 3em;
   margin: 0.3em;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 #view-logo{
@@ -76,32 +78,13 @@ h3 {
   font-size: 1em;
 }
 
-/* .waiter{
-  background: black;
-} */
-
-/* .input-roles{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #f6f3ff;
-  font-size: 1em;
-  background-color: rgba(0, 0, 0, 0.701);
-  border: 1px solid  goldenrod;
-  width: 9.8em;
-  height: 8em; 
-  margin: 1em;
-  letter-spacing: 1px;
-  
-} */
-
-
 .logo {
   width: 4.5em;
   margin-left: 2.5em;
 }
 
 .input-form {
+  width: 250px;
   color: white;
   font-size: 1.2em; 
   background: transparent;
@@ -116,13 +99,14 @@ h3 {
 font-size: 1em;
  width: 14em;
  height: 2em;
+ margin-bottom: 20px;
  border-radius: 10px;
  outline: none;
  border: 0;
  color: white;
  background-color: rgba(0, 0, 0, 0.3);
  border: 1px solid  goldenrod;
-
+ 
 }
 
 #sign-in{
@@ -130,11 +114,11 @@ font-size: 1em;
 }
 
 .error{
-  width: 100vh; 
-  height: 100%; 
+  width: 100%; 
 }
 
 .messageError {
+  font-size: 10px;
   color: rgb(248, 225, 21);
 }
 
@@ -142,17 +126,22 @@ font-size: 1em;
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 22em;
+  justify-content:space-between;
+  width: 23em;
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
   border: 1px solid  goldenrod;
   border-radius: 5px;
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 0.5em 1em 0.5em 0.2em;
 }
 
 .user-name{
-  width: 4.5em;
+  width: 6.5em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid  goldenrod;
+  border-radius: 4px;
+  text-align: center;
 }
 
 .data{
@@ -164,20 +153,23 @@ font-size: 1em;
 }
 .data ul {
   list-style: none;
+  padding: 0;
 }
+
 .infoProducts{
+  width: 19em;
   display: grid;
-  grid-template-columns: auto auto auto;
-  align-items: start;
-  margin: 0;
-  font-size: 15.8px;
+  grid-template-columns:auto auto auto;
+  justify-content:space-between;
+  font-size: 14px;
 }
 .amount{
   display: grid;
   grid-template-columns: auto auto auto;
   justify-items: end;
   align-items: start;
-  font-size: 15px;
+  font-size: 14px;
+  justify-content: space-between;
   
 }
 .amount h4{
@@ -186,33 +178,53 @@ font-size: 1em;
 }
 
 .buttonAmount{
-  width: 3em;
+  width: 2em;
+  justify-content: space-between;
 }
 
 
 
-.resume ul{
+
+
+.resume ul, .total ul{
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 13em;
+  justify-content: space-evenly;
+  width: 24em;
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
   border: 1px solid  goldenrod;
   border-radius: 5px;
-  padding: 0.5em 1em 0.5em 10em;
+  padding: 0.5em 0em 0.5em 0.2em;
+  font-size: 1em;
+}
+
+.infoProductsResume{
+  list-style: none;
+  display: grid;
+  grid-template-columns:2fr 1fr;
+  align-items: center;
+  justify-content: space-between;
+  justify-items:center;
+  font-size: 14px;
+}
+.priceAmountProduct{
+  margin: 0;
+  padding: 0;
+
 }
 
 .send-cancel{
   display: flex;
   flex-direction: row;
   gap: 4em;
-  width: 18em;
+  width: 24em;
   margin: 1em;
 }
 
 @media (min-width: 768px) {
+
   .logo {
     width: 2em;
     margin-left: 4em;
@@ -223,14 +235,17 @@ font-size: 1em;
   }
   .login{
     width: 50em;
+    height: 90vh;
   }
+  .messageError{
+    font-size: 15px;
+  }
+ 
   .waiter {
     width: 48em;
-    height: 95vh;
     background-position: center;
     display: flex;
     justify-content: space-around;
-    letter-spacing: 5px;
   }
 
   .header{
@@ -260,26 +275,36 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 45em;
+  width: 38em;
   border: 1px solid goldenrod; 
+
 }
 .data{
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  width: 45em;
+  font-size: 1em;
+ 
   
 }
 .data ul {
   list-style: none;
-  width: 45em;
 }
+
 .infoProducts{
+  font-size: 1em;
   display: grid;
   grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  padding: 10px;
+  
   
 }
+.add{
+  margin: 2px;
+}
 .amount{
+
   display: grid;
   grid-template-columns: auto auto auto;
   justify-items: end;
@@ -289,17 +314,17 @@ h1 {
   margin: 0;
 }
 
+
 .resume ul{
-  list-style: none;
   display: flex;
-  flex-direction: row;
+  list-style: none;
   justify-content: space-around;
-  width: 36em;
+  width: 40em;
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
   border: 1px solid  goldenrod;
   border-radius: 5px;
-  padding: 0.5em 1em 0.5em 10em;
+
 }
 .send-cancel{
   display: flex;
@@ -308,5 +333,40 @@ h1 {
   width: 30em;
   margin: 1em;
 }
+.infoProductsResume{
+  list-style: none;
+  display: grid;
+  grid-template-columns:2fr 1fr;
+  align-items: center;
+  justify-content: space-around;
+  justify-items:center;
+  font-size: 16px;
+}
+
+.client-resume{
+  font-size: 1em;
+
+}
+.priceAmountProduct{
+  padding: 0;
+  margin: 0;
+}
+
+.user-name{
+  width: 7em;
+  height: 2em;
+  margin: 3em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid  goldenrod;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.total{
+  display: flex;
+  justify-content: center;
+}
+
 
 }
