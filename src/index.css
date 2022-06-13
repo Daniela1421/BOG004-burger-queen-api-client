@@ -321,9 +321,12 @@ h1 {
 .send-cancel{
   display: flex;
   flex-direction: row;
-  gap: 5em;
-  width: 30em;
-  margin: 1em;
+  gap: 9em;
+  width: 40em;
+  padding: 5px;
+}
+.input-buttons{
+  width: 25em;
 }
 .infoProductsResume{
   list-style: none;
