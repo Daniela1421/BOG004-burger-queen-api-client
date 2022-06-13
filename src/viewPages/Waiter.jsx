@@ -1,27 +1,25 @@
 import Logout from "../components/Logout";
 import Restaurant from "../components/Restaurant";
-import React, { useState } from 'react';
-import Delete from "../images/delete.svg"
+import React, { createContext, useState } from 'react';
 import add from "../images/add.svg"
-import Counter from "../components/Counter";
+import { ProductsResume } from "../components/ProductsResume";
 
 export default function Waiter() {
   const [products, setProducts] = useState([])
   const [productsSelected, setProductsSelected] = useState([])
   const [client, setClient] = useState("")
-  const [amount, setAmount] = useState(1)
-  // console.log("client", client)
-  // const UpdateClient = client; 
+  const [total, setTotal] = useState(0)
   const urlApi = 'http://localhost:8080';
-  const createCounter = (type) => {
+  const totalContext = createContext();
+  // const createCounter = (type) => {
 
-    if (type === "increase") { 
-      setAmount(amount + 1) 
+  //   if (type === "increase") { 
+  //     setAmount(amount + 1) 
 
-    } else {
-      setAmount(amount - 1)
-    }
-  }
+  //   } else {
+  //     setAmount(amount - 1)
+  //   }
+  // }
 
   const validateHttpProducts = (menu) => {
 
@@ -82,12 +80,13 @@ export default function Waiter() {
    setProductsSelected([product].concat(productsSelected))
  }
 
- const handleDelete = (id) => {
-  // console.log("delete", id );
-  // console.log("delete filter", productsSelected.filter((item) => item.id !== id) )
-  const newArr = productsSelected.filter((item) => item.id !== id);
-  setProductsSelected(newArr);
-};
+ const productDelete = (id) => {
+console.log("productDelete", id)
+const newArr = productsSelected.filter((item) => item.id !== id);
+setProductsSelected(newArr);
+ }
+
+ 
    
   return (
       <div className='waiter'>
@@ -132,15 +131,13 @@ export default function Waiter() {
           <div>
           <ul className="priceAmountProduct">
             {console.log("selected", productsSelected)}
-            {productsSelected.map((product) =>
-            <div className="infoProductsResume" key={product.id}>
-            <li>{product.name}</li>
-            <img className="delete" id='view-delete' src={Delete} alt='Delete' onClick={() => handleDelete(product.id)}></img>
-
-            <Counter price={product.price} createCounter = {createCounter} amount = {amount} />
-            {/* <li >{product.price}</li> */ console.log(product)}
+            {productsSelected.map((product ) =>
+            <totalContext>
+               <ProductsResume product={product} productsSelected={productsSelected} productDelete={productDelete}/>
+            </totalContext>
             
-            </div>
+           
+              
             )}
           </ul>
           </div>

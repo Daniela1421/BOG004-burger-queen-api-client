@@ -308,9 +308,11 @@ h1 {
 
 
 .resume ul{
+  margin-left: auto;
   display: flex;
   list-style: none;
   justify-content: space-around;
+
   width: 39em;
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
@@ -329,11 +331,12 @@ h1 {
   width: 36.5em;
 }
 .infoProductsResume{
+  margin: 0px 100px ;
   list-style: none;
   display: grid;
-  grid-template-columns:2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   justify-items:center;
   font-size: 16px;
 }
