@@ -31,7 +31,7 @@ h3 {
   background: #31313196 ;
   background-image: url("./images/illustration.svg");
   background-repeat: no-repeat;
-  background-position:center;
+  background-position: bottom;
   border-radius: 10px;
  background-blend-mode: multiply,multiply;
  letter-spacing: 1.5px;
