@@ -1,13 +1,10 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  /* color: white; */
   background: rgb(123, 96, 176);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 h1{
@@ -44,11 +41,6 @@ h3 {
 .login{
   width: 35rem;
   height: 55rem;
-}
-
-.waiter{
- 
-  justify-content: flex-start;
 }
 
 .header{
@@ -252,7 +244,7 @@ font-size: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 45em;
+    width: 40em;
     
   }
 
