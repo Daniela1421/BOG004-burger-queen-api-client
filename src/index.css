@@ -20,7 +20,7 @@ h3 {
 
 }
 
-.login, .waiter{
+.login, .waiter, .chef{
 
   display: flex;
   flex-direction: column;
@@ -233,7 +233,7 @@ font-size: 1em;
     font-size: 15px;
   }
  
-  .waiter {
+  .waiter, .chef{
     width: 48em;
     background-position: center;
     display: flex;

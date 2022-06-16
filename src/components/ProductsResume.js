@@ -1,20 +1,47 @@
-import React from "react";
+import React, {useState, forwardRef, Fragment } from "react";
 import Delete from "../images/delete.svg";
-import Counter from "./Counter";
+//import Counter from "./Counter";
 
-export const ProductsResume = ({ product, productsSelected, productDelete }) => {
-  const handleDelete = (id) => {
-    // console.log("delete", id );
-			productDelete(id)
-    // console.log(
-    //   "delete filter",
-    //   product
-    // );
 
+const ProductsResume = forwardRef(({ productsSelected, productDelete, /*updateQuantities */}, ref ) => {
+  const [amount, setAmount] = useState(1)
+  const [order, setOrder] = useState([...productsSelected])
+ 
+  console.log("order Products resume", order)
+  // useEffect(() => {
+  //   setOrder([...productsSelected])
     
+  // }, [])
+  
+
+  const handleDelete = (id) => {
+			productDelete(id) 
   };
+
+  console.log("Products selected", productsSelected)
+
+  const addQuantity = (product) => {
+    const productoExistente = productsSelected.findIndex(({id}) => id === product.id)
+    // console.log("productsselected", productsSelected)
+    console.log("producto existente", productoExistente)
+    productsSelected[productoExistente].quantity = product.quantity + 1
+    // setAmount(productoExistente.quantity)
+    // setOrder([...order, product])
+    // console.log("order array ", order)
+  }
+
+
+  // const amountPrice = (product) => {
+  //   return amount * product.price 
+  // }
+  // console.log("product", product)
+
+  // console.log("ref en products resume", ref)
+
   return (
-    <div className="infoProductsResume" key={product.id}>
+    <div className="infoProductsResume">
+    {productsSelected.map((product) =>
+      <Fragment  key={product.id}>
       <li>{product.name}</li>
       <img
         className="delete"
@@ -23,8 +50,38 @@ export const ProductsResume = ({ product, productsSelected, productDelete }) => 
         alt="Delete"
         onClick={() => handleDelete(product.id)}
       ></img>
+      <div className="amount">
+        <button 
+          className='buttonAmount' 
+          id="add" 
+          onClick={() => {
+            // if (amount >= 1) { 
+            //   setAmount(amount + 1) 
+            // }
+            // updateQuantities(product.id, "add")
+            addQuantity(product)
+            
+          }}>+
+        </button>
 
-      <Counter price={product.price} />
+        {  console.log("return ", product.quantity)}
+        <h4>{product.quantity}</h4>
+        <button 
+          className='buttonAmount' 
+          id="decrease" 
+          onClick={() => { 
+            if (amount > 1) { 
+              setAmount(amount - 1) 
+            } 
+            // updateQuantities(product.id, "decrease")
+          }}>-
+        </button>
+      </div>
+      <h4 ref={ref} >{amount * product.price}</h4>
+      </Fragment>
+    )}
     </div>
   );
-};
+});
+
+export {ProductsResume}
