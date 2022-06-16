@@ -160,7 +160,7 @@ export default function Waiter() {
         <h3 className="client-resume">{client}</h3>
         <div>
           <ul className="priceAmountProduct">
-          <ProductsResume productsSelected={productsSelected} productDelete={productDelete} ref={totalPricePerProduct} /*updateQuantities={updateQuantities}*//>
+          <ProductsResume productsSelected={productsSelected} setProductsSelected={setProductsSelected} productDelete={productDelete} ref={totalPricePerProduct} /*updateQuantities={updateQuantities}*//>
             {/* {console.log("selected", productsSelected)}
             {productsSelected.map((product) =>
               // <totalContext>
