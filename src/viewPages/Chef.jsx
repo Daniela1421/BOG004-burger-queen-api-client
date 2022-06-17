@@ -24,7 +24,7 @@ export default function Chef() {
     .then(res => res.json())
 
     .then(data => {
-      console.log("orders", data)
+      // console.log("orders", data)
       const arrOrders = []; 
       data.forEach(order => {
       
@@ -42,8 +42,8 @@ export default function Chef() {
     .catch(error => console.error('Error:', error))
   }
   
-
-
+  const time = listOrders.map((order) => order.products.map((product)=> product.product.dateEntry))
+  console.log("time ", time)
 
   return (
     <div className="chef">
@@ -59,7 +59,6 @@ export default function Chef() {
       </div>
       <div className="info">
         <ul>
-          <li>HORA</li>
           <li>TIEMPO DE PREPARACIÓN</li>
           <li>PEDIDO</li>
           <li>ESTADO</li>
@@ -77,10 +76,11 @@ export default function Chef() {
             order.products.map((product, i)=> (
               <div key={i+1000}>
               <p>{product.product.name}</p>
+              <p>{}</p>
               </div>
-            )
-            )
+            ))
            }
+           <p>{order.status}</p>
           </li>
         )}
       </ul>
