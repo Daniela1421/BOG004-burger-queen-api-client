@@ -24,7 +24,7 @@ export default function Chef() {
     .then(res => res.json())
 
     .then(data => {
-      console.log("orders", data)
+      // console.log("orders", data)
       const arrOrders = []; 
       data.forEach(order => {
       
@@ -42,52 +42,50 @@ export default function Chef() {
     .catch(error => console.error('Error:', error))
   }
   
-
-
+  const time = listOrders.map((order) => order.products.map((product)=> product.product.dateEntry))
+  console.log("time ", time)
 
   return (
     <div className="chef">
-    <header className="header">
-      <Restaurant />
       <Logout />
+      <Restaurant />
+    <header className="header">
     </header>
     <section>
-      <div className="info">
+  
+      <div className="order">
         <ul>
-          <li>PEDIDOS</li>
+          <li>PENDIENTES</li>
         </ul>
       </div>
-      <div className="info">
+      <div className="order">
         <ul>
-          <li>HORA</li>
-          <li>TIEMPO DE PREPARACIÓN</li>
-          <li>PEDIDO</li>
-          <li>ESTADO</li>
+          <li>LISTOS</li>
         </ul>
       </div>
     </section>
-    <div>
-      <ul className="priceAmountProduct">
+    <div className="data-div-chef">
+      <ul >
         {/* {console.log("selected", listOrders)} */}
         {listOrders.map((order, index) =>
-          <li key={index}>
-           <p>{order.client}</p>
+          <li key={index} className="data-chef">
+           <p> Cliente: {order.client}</p>
            
            {
             order.products.map((product, i)=> (
               <div key={i+1000}>
-              <p>{product.product.name}</p>
+              <p>Producto: {product.product.name}</p>
+              <p>{}</p>
               </div>
-            )
-            )
+            ))
            }
+           <p>{order.status}</p>
+           <button className="listo">Listo</button>
           </li>
         )}
       </ul>
     </div>
-    <section className="send-cancel">
-        <button className='input-buttons' /*onClick={handleClick}*/>ENVIAR</button>
-    </section>
+
     </div>
   )
 }

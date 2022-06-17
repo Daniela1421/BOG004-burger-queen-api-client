@@ -1,13 +1,13 @@
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: rgb(123, 96, 176);
+  font-family: "Poppins", sans-serif;
+  background: rgb(95, 73, 138);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-h1{
+h1 {
   font-size: 1.5em;
 }
 
@@ -15,70 +15,91 @@ h2 {
   font-size: 1em;
 }
 
-h3 {
-  font-size: 1em;
-
-}
-
-.login, .waiter, .chef{
-
+.login,
+.waiter,
+.chef {
   display: flex;
+  width: 30em;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 5rem;
   color: white;
-  background: #31313196 ;
+  background: #31313196;
   background-image: url("./images/illustration.svg");
   background-repeat: no-repeat;
   background-position: bottom;
   border-radius: 10px;
- background-blend-mode: multiply,multiply;
- letter-spacing: 1.5px;
- border-bottom: goldenrod solid 3px;
- padding-top: 2em;
+  background-blend-mode: multiply, multiply;
+  letter-spacing: 1.5px;
+  border-bottom: goldenrod solid 3px;
+  padding-top: 2em;
 }
-.login{
+.login {
   width: 35rem;
-  height: 55rem;
+  height: 40rem;
+  margin-top: 8rem;
+  font-size: 12px;
+}
+.entrar {
+  display: inline-flex;
+  align-items: center;
+  width: 21em;
+  padding: 10px;
+  margin: 0 auto;
+  margin: 5px;
+  letter-spacing: 5px;
+  justify-content: center;
+  border-radius: 5px;
+  outline: none;
+  border: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid goldenrod;
+  
 }
 
-.header{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 24em;
+.entrar:hover {
+  background: goldenrod;
 }
 
-.menu{
+.menu {
   display: flex;
   flex-direction: column;
 }
 
-#logout, #breakfast, #today-menu{
-  width: 8em;
-  height: 3em;
-  margin: 0.3em;
-  font-size: 14px;
+.logout {
+  display: flex;
+  justify-content: center;
+  margin-left: 20em;
+  width: 90px;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid goldenrod;
 }
 
-#view-logo{
-  width: 3em;
-  margin-left: 3em;
-}
-#nameRestaurant{
-  font-size: 1em;
+.logout:hover {
+  background: goldenrod;
 }
 
-.logo {
-  width: 4.5em;
-  margin-left: 2.5em;
+#view-logo {
+  display: flex;
+  width: 50px;
+  margin-left: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+#nameRestaurant {
+  font-size: 20px;
 }
 
 .input-form {
   width: 250px;
   color: white;
-  font-size: 1.2em; 
+  font-size: 15px;
   background: transparent;
   border-left: 2px;
   border-right: 5px;
@@ -88,25 +109,39 @@ h3 {
 }
 
 .input-buttons {
-font-size: 1em;
- width: 16em;
- height: 2em;
- margin-bottom: 20px;
- border-radius: 10px;
- outline: none;
- border: 0;
- color: white;
- background-color: rgba(0, 0, 0, 0.3);
- border: 1px solid  goldenrod;
- 
+  width: 12.5em;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  margin: 0 auto;
+  margin: 5px;
+  letter-spacing: 2px;
+  justify-content: center;
+  border-radius: 5px;
+  outline: none;
+  border: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid goldenrod;
+
 }
 
-#sign-in{
+.input-buttons li {
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+}
+
+.input-buttons:hover {
+  background: goldenrod;
+}
+
+#sign-in {
   margin-top: 0.5em;
 }
 
-.error{
-  width: 100%; 
+.error {
+  width: 100%;
 }
 
 .messageError {
@@ -114,257 +149,284 @@ font-size: 1em;
   color: rgb(248, 225, 21);
 }
 
-.info ul{
+.info ul {
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
-  width: 23em;
+  justify-content: space-between;
+  width: 24em;
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid  goldenrod;
+  border: 1px solid goldenrod;
   border-radius: 5px;
   padding: 0.5em 1em 0.5em 0.2em;
 }
 
-.user-name{
-  width: 6.5em;
+.user-name {
+  width: 6em;
+  margin: 0 auto;
+  margin: 5px;
+  padding: 5px;
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid  goldenrod;
+  border: 1px solid goldenrod;
   border-radius: 4px;
   text-align: center;
 }
 
-.data{
+.data {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid goldenrod;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  width: 5em;
+  width: 25.1em;
   margin: 0;
+  border-radius: 5px;
 }
 .data ul {
   list-style: none;
   padding: 0;
 }
 
-.infoProducts{
+.infoProducts {
   width: 19em;
   display: grid;
-  grid-template-columns:auto auto auto;
-  justify-content:space-between;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
   font-size: 14px;
 }
-.amount{
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-items: end;
-  align-items: start;
+
+.amount {
+  display: inline-flex;
   font-size: 14px;
   justify-content: space-between;
-  
-}
-.amount h4{
-  margin: 0;
-
 }
 
-.buttonAmount{
+.buttonAmount {
   width: 2em;
   justify-content: space-between;
 }
 
-
-
-
-
-.resume ul, .total ul{
+.resume ul,
+.total ul {
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 24em;
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid  goldenrod;
+  border: 1px solid goldenrod;
   border-radius: 5px;
-  padding: 0.5em 0em 0.5em 0.2em;
+  padding: 0.5em 0.7em 0.5em 0.7em;
   font-size: 1em;
 }
 
-.infoProductsResume{
-  list-style: none;
+.infoProductsResume div{
   display: grid;
-  grid-template-columns:2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
   align-items: center;
-  justify-content: space-between;
-  justify-items:center;
+  list-style: none;
   font-size: 14px;
 }
-.priceAmountProduct{
+
+.priceAmountProduct {
   margin: 0;
   padding: 0;
-
 }
 
-.send-cancel{
-  display: flex;
-  flex-direction: row;
-  gap: 4em;
-  width: 24em;
-  margin: 1em;
-}
+
+.client-resume {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 0 auto;
+    margin: 10px;
+  }
+
+  .data-chef {
+    display: grid;
+    grid-template-columns: auto;
+    padding: 5px;
+    width: 20rem;
+    margin: 0 auto;
+    margin: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid goldenrod;
+  }
+
+
+  .data-div-chef ul {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .listo {  
+  margin: 0 auto;
+  margin: 5px;
+  padding: 10px;
+  letter-spacing: 2px;
+  justify-content: center;
+  border-radius: 5px;
+  outline: none;
+  border: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid goldenrod;
+  }
+  .listo:hover {
+    background: goldenrod;
+  }
+
+  .order ul {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    width: 18em;
+    letter-spacing: 2px;
+    justify-content: center;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid goldenrod;
+    list-style: none;
+  }
+  .order:hover ul {
+    background: goldenrod;
+  }
+   
 
 @media (min-width: 768px) {
+  .logout {
+    margin-left: 32rem;
+    width: 100px;
+    border-radius: 5px;
+  }
 
-  .logo {
-    width: 2em;
-    margin-left: 4em;
-    
-  }
-  #nameRestaurant{
-    font-size: 1em;
-  }
-  .login{
-    width: 50em;
-    height: 90vh;
-  }
-  .messageError{
+  .messageError {
     font-size: 15px;
   }
- 
-  .waiter, .chef{
+
+  .waiter,
+  .chef {
     width: 48em;
     background-position: center;
     display: flex;
     justify-content: space-around;
   }
 
-  .header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 40em;
+  .entrar {
     
-  }
+    width: 38em;
 
-  .menu{
-    display: flex;
-    flex-direction: row;
   }
 
   .input-form {
     width: 30em;
   }
+
+  .input-buttons {
+    display: inline-flex;
+    width: 18.5rem;
+    padding: 20px;
+    margin: 0 auto;
+    margin: 15px;
+  }
+
+  .info ul{
+    width: 38em;
+    margin: 0 auto;
+    border-radius: 5px;
+    margin: 15px;
+
+  }
+
+  .infoProducts {
+    font-size: 1em;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .resume ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    width: 38em;
+    margin: 0 100px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+  }
   
-h1 {
-  margin: 1.5px;
- font-size: 2em;
-}
+  .infoProductsResume   {
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    font-size: 16px;
+  }
 
+  .client-resume {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 0 auto;
+    margin: 15px;
+  }
 
-.info ul{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 38em;
-  border: 1px solid goldenrod; 
+  .data{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid goldenrod;
+    width: 39.5em;
+    margin: 0 auto;
+    margin: 10px;
+    border-radius: 10px;
+  }
 
-}
-.data{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  font-size: 1em;
- 
+  .user-name {
+    width: 10em;
+    height: 2em;
+    margin: 3em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid goldenrod;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .resume ul,
+  .total ul {
+   margin: 0 auto;
+   margin: 15px;
+    width: 38em;
   
-}
-.data ul {
-  list-style: none;
-}
-
-.infoProducts{
-  font-size: 1em;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-content: space-between;
-  padding: 10px;
-  
-  
-}
-.add{
-  margin: 2px;
-}
-.amount{
-
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-items: end;
-  align-items: start;
-}
-.amount h4{
-  margin: 0;
-}
+  }
+  .order {
+    display: inline-block;
+    padding: 5px;
+  }
+  .data-chef {
+    margin: 5px;
+    border-radius: 5px;
+  }
 
 
-.resume ul {
-  display: flex;
-  align-items: center;
-  justify-content:space-around;
-  list-style: none;
-  width: 39em;
-  margin:0 100px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid  goldenrod;
-  border-radius: 5px;
-
-}
-.send-cancel{
-  display: flex;
-  flex-direction: row;
-  gap: 9em;
-  width: 40em;
-  padding: 5px;
-}
-.input-buttons{
-  width: 36.5em;
-}
-.infoProductsResume{
-  margin: 0px 100px ;
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  align-items: center;
-  justify-content: space-evenly;
-  justify-items:center;
-  font-size: 16px;
-}
-
-.client-resume{
-  font-size: 1em;
-
-}
-.priceAmountProduct{
-  padding: 0;
-  margin: 0;
-}
-
-.user-name{
-  width: 7em;
-  height: 2em;
-  margin: 3em;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid  goldenrod;
-  border-radius: 4px;
-  text-align: center;
-}
-
-.total{
-  display: flex;
-  justify-content: center;
-}
-
+  .data-div-chef ul {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 0 auto;
+    padding: 10px;
+  }
 
 }
