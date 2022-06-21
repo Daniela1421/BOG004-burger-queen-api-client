@@ -1,5 +1,5 @@
 import { Navigate} from 'react-router-dom';
-import Waiter from '../viewPages/Waiter';
+import Waiter from '../viewPages/Waiter/Waiter';
 import Chef from '../viewPages/Chef';
 
 const RequireAuth = ({children}) => {
@@ -15,7 +15,7 @@ const RequireAuth = ({children}) => {
         return children
     } else if(isLogin === null){
         return <Navigate to="/"/>
-    }      
+    }
 }
 
 export default RequireAuth

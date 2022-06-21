@@ -29,6 +29,7 @@ const validateHttp = (data) => {
   .then(response => {
     // console.log('Success:', response)
     localStorage.setItem('userToken', response.accessToken)
+    localStorage.setItem('uid', response.user.id)
     if(response.accessToken && response.user.roles.waiter === true){
       navigate('/waiter')
       localStorage.setItem('userRol', "waiter")

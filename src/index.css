@@ -300,6 +300,11 @@ h2 {
   .order:hover ul {
     background: goldenrod;
   }
+
+  .buttonsDelivered {
+    display: inline-flex;
+    width: 26rem;
+  }
    
 
 @media (min-width: 768px) {
@@ -427,6 +432,11 @@ h2 {
     grid-template-columns: auto auto;
     margin: 0 auto;
     padding: 10px;
+  }
+
+  .buttonsDelivered {
+    display: inline-flex;
+    width: 41rem;
   }
 
 }

@@ -1,8 +1,10 @@
-import Logout from "../components/Logout";
-import Restaurant from "../components/Restaurant";
+import Logout from "../../components/Logout";
+import Restaurant from "../../components/Restaurant";
 import React, { useState } from 'react';
-import add from "../images/add.svg"
-import { ProductsResume } from "../components/ProductsResume";
+import add from "../../images/add.svg"
+import { ProductsResume } from "../../components/ProductsResume";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Waiter() {
   const [products, setProducts] = useState([])
@@ -37,6 +39,9 @@ export default function Waiter() {
               id: productsId,
               price: productsPrice,
               quantity: 1,
+              image: products.image,
+              type: products.type,
+              dataEntry: products.dataEntry
             })
             setProducts(arrProducts);
           } else if (products.type === menu) {
@@ -47,7 +52,10 @@ export default function Waiter() {
               name: productsName,
               id: productsId,
               price: productsPrice,
-              quantity: 1
+              quantity: 1,
+              image: products.image,
+              type: products.type,
+              dataEntry: products.dataEntry
             })
             setProducts(arrProducts);
           }
@@ -71,35 +79,59 @@ export default function Waiter() {
     const newArr = productsSelected.filter((item) => item.id !== id);
     setProductsSelected(newArr);
   }
+
+  const navigate = useNavigate();
+  const handleDelivered = () => {
+        navigate("/waiter/OrderDelivered")
+        }
+
+
+
  
   const priceQuantity = productsSelected.map((product) => {
     const pricePerProduct = product.quantity * product.price
     return pricePerProduct;
   })
+
+
   
   //console.log("price quantity", priceQuantity)
   
   const priceTotal = priceQuantity.reduce((price1, price2) => price1 + price2 , 0)
   //console.log("pricetotal", priceTotal)
+
+  const handleCancel = () => {
+    setProductsSelected([])
+  }
   
 
-  // const sendOrder = () => {
-    // console.log ("objeto", {
-    //   id: 1, 
-    //   userId: 1, 
-    //   client: client, 
-    //   products: [
-    //     { qty: productsSelected.quantity,
-    //       product: {
-    //         productsSelected
-    //       }
-    //     }
-    //   ],
-    //   status: "pending", 
-    //   dataEntry: "04/06/2022", 
-    // })
- // }
-  // console.log("orden final", sendOrder())
+  const sendOrder = () => {
+    const date = new Date();
+    const objArray = productsSelected.map((product) => {
+      return {
+        qty: product.quantity,
+        product: { 
+          "id": product.id,
+          "name": product.name,
+          "price": product.price,
+          "image": product.image,
+          "type": product.type,
+          "dateEntry": date
+        } 
+      }
+
+    })
+    const userID = localStorage.getItem("uid")
+    console.log ("objeto", {
+      id: Math.random(),
+      userId: userID,
+      client: client, 
+      products: objArray,
+      status: "pending", 
+      dataEntry: date, 
+    })
+ }
+  //  console.log("orden final", sendOrder())
 
   return (
     <div className='waiter'>
@@ -153,8 +185,11 @@ export default function Waiter() {
         </div>
       </section>
       <section>
-        <button className='input-buttons'>ENVIAR</button>
-        <button className='input-buttons'>CANCELAR</button>
+        <div className="buttonsDelivered">
+        <button className='input-buttons' onClick={sendOrder}>ENVIAR</button>
+        <button className='input-buttons' onClick={handleCancel}>CANCELAR</button>
+        <button className='input-buttons' onClick={handleDelivered}>PEDIDOS LISTOS</button>
+        </div>
       </section>
     </div>
   )
