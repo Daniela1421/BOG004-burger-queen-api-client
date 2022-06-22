@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background: rgb(95, 73, 138);
+  /* background: rgb(87, 165, 179); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +31,7 @@ h2 {
   background-repeat: no-repeat;
   background-position: bottom;
   border-radius: 10px;
-  background-blend-mode: multiply, multiply;
+  background-blend-mode: darken;
   letter-spacing: 1.5px;
   border-bottom: goldenrod solid 3px;
   padding-top: 2em;
@@ -300,6 +301,11 @@ h2 {
   .order:hover ul {
     background: goldenrod;
   }
+
+  .buttonsDelivered {
+    display: inline-flex;
+    width: 26rem;
+  }
    
 
 @media (min-width: 768px) {
@@ -427,6 +433,11 @@ h2 {
     grid-template-columns: auto auto;
     margin: 0 auto;
     padding: 10px;
+  }
+
+  .buttonsDelivered {
+    display: inline-flex;
+    width: 41rem;
   }
 
 }
