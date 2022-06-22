@@ -86,7 +86,7 @@ const handleClick = () => {
         <input data-testid='input-password' className='input-form' type="password" value={password} onChange={(e) => {setPassword(e.target.value);}}/> 
         </div>
         {error && <h3 data-testid='login-error' className="messageError">{error}</h3>}
-        <button className='input-buttons'id="sign-in" onClick={handleClick}>ENTRAR</button>
+        <button className='entrar'id="sign-in" onClick={handleClick}>ENTRAR</button>
     </div>
   )
 }

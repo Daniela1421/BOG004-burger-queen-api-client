@@ -47,47 +47,45 @@ export default function Chef() {
 
   return (
     <div className="chef">
-    <header className="header">
-      <Restaurant />
       <Logout />
+      <Restaurant />
+    <header className="header">
     </header>
     <section>
-      <div className="info">
+  
+      <div className="order">
         <ul>
-          <li>PEDIDOS</li>
+          <li>PENDIENTES</li>
         </ul>
       </div>
-      <div className="info">
+      <div className="order">
         <ul>
-          <li>TIEMPO DE PREPARACIÓN</li>
-          <li>PEDIDO</li>
-          <li>ESTADO</li>
+          <li>LISTOS</li>
         </ul>
       </div>
     </section>
-    <div>
-      <ul className="priceAmountProduct">
+    <div className="data-div-chef">
+      <ul >
         {/* {console.log("selected", listOrders)} */}
         {listOrders.map((order, index) =>
-          <li key={index}>
-           <p>{order.client}</p>
+          <li key={index} className="data-chef">
+           <p> Cliente: {order.client}</p>
            
            {
             order.products.map((product, i)=> (
               <div key={i+1000}>
-              <p>{product.product.name}</p>
+              <p>Producto: {product.product.name}</p>
               <p>{}</p>
               </div>
             ))
            }
            <p>{order.status}</p>
+           <button className="listo">Listo</button>
           </li>
         )}
       </ul>
     </div>
-    <section className="send-cancel">
-        <button className='input-buttons' /*onClick={handleClick}*/>ENVIAR</button>
-    </section>
+
     </div>
   )
 }

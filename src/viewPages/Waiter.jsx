@@ -103,15 +103,15 @@ export default function Waiter() {
 
   return (
     <div className='waiter'>
-      <header className="header">
-        <div className="menu">
+        <Logout />
+        <Restaurant />
+      <header>
+        <div>
           <button className='input-buttons' id="breakfast" onClick={() => handleClick("Desayuno")} >DESAYUNO</button>
           <button className='input-buttons' id="today-menu" onClick={() => handleClick("Almuerzo")}>ALMUERZO</button>
         </div>
-        <Restaurant />
-        <Logout />
       </header>
-      <section className="Orders">
+      <section>
         <div className="info">
           <ul>
             <li>CLIENTE</li>
@@ -140,8 +140,8 @@ export default function Waiter() {
           </ul>
         </div>
         <h3 className="client-resume">{client}</h3>
-        <div>
-          <ul className="priceAmountProduct">
+        <div className="resume">
+          <ul>
           <ProductsResume productsSelected={productsSelected} setProductsSelected={setProductsSelected} productDelete={productDelete}/>
           </ul>
         </div>
@@ -152,9 +152,9 @@ export default function Waiter() {
           </ul>
         </div>
       </section>
-      <section className="send-cancel">
-        <button className='input-buttons' /*onClick={handleClick}*/>ENVIAR</button>
-        <button className='input-buttons' /*onClick={handleClick}*/>CANCELAR</button>
+      <section>
+        <button className='input-buttons'>ENVIAR</button>
+        <button className='input-buttons'>CANCELAR</button>
       </section>
     </div>
   )
