@@ -1,6 +1,7 @@
 import Logout from "../components/Logout";
 import Restaurant from "../components/Restaurant";
 import React, { useState, useEffect } from 'react';
+import Timekeeper from "../components/Timekeeper";
 
 export default function Chef() {
   const [listOrders, setListOrders] = useState([])
@@ -72,7 +73,7 @@ export default function Chef() {
       <section>
         <div className="order">
           <button className='input-buttons' id="breakfast" onClick={() => handleClick("pending")} >PENDIENTES</button>
-          <button className='input-buttons' id="today-menu" onClick={() => handleClick("delivered")}>LISTOS</button>
+          <button className='input-buttons' id="today-menu" onClick={() => handleClick("delivering")}>LISTOS</button>
         </div>
       </section>
       <div className="data-div-chef">
@@ -94,7 +95,8 @@ export default function Chef() {
                 ))
               }
               {/* {console.log("dataEntry", order)} */}
-              <p>{order.dataEntry}</p>
+              {/* <p>{order.dataEntry}</p> */}
+              <Timekeeper/>
               <button className="listo">Listo</button>
             </li>
           )}

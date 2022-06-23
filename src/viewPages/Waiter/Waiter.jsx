@@ -208,7 +208,7 @@ const sendOrderAPI = () =>{
         <div className="buttonsDelivered">
         <button className='input-buttons' onClick={sendOrderAPI}>ENVIAR</button>
         <button className='input-buttons' onClick={handleCancel}>CANCELAR</button>
-        <button className='input-buttons' onClick={handleDelivered}>PEDIDOS LISTOS</button>
+        <button className='input-buttons' onClick={handleDelivered}>PEDIDOS EN PROCESO</button>
         </div>
       </section>
     </div>
