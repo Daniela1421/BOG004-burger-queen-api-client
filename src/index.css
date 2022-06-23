@@ -2,9 +2,16 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background: rgb(95, 73, 138);
+  /* background: rgb(87, 165, 179); */
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("./images/illustration.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 500px;
+
+  
 }
 
 h1 {
@@ -19,28 +26,23 @@ h2 {
 .waiter,
 .chef {
   display: flex;
-  width: 30em;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
   color: white;
   background: #31313196;
-  background-image: url("./images/illustration.svg");
-  background-repeat: no-repeat;
-  background-position: bottom;
   border-radius: 10px;
-  background-blend-mode: darken;
   letter-spacing: 1.5px;
   border-bottom: goldenrod solid 3px;
   padding-top: 2em;
 }
 .login {
   width: 35rem;
-  height: 40rem;
-  margin-top: 8rem;
+  height: 35rem;
+  margin-top: 2rem;
   font-size: 12px;
 }
+
 .entrar {
   display: inline-flex;
   align-items: center;
@@ -71,7 +73,7 @@ h2 {
 .logout {
   display: flex;
   justify-content: center;
-  margin-left: 20em;
+  margin-left: 14em;
   width: 90px;
   border-radius: 5px;
   padding: 5px;
@@ -305,7 +307,15 @@ h2 {
     display: inline-flex;
     width: 26rem;
   }
-   
+  
+  .buttonAmount {
+    border-radius: 10px;
+    border: 0;
+    color: white;
+    background-color: goldenrod;
+  }
+
+
 
 @media (min-width: 768px) {
   .logout {

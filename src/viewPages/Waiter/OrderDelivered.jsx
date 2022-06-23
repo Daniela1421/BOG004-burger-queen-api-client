@@ -1,18 +1,61 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 // import  Chef	from '../Chef'
 import Logout from '../../components/Logout'
 import Restaurant from '../../components/Restaurant'
+import Arrow from '../../images/Arrow.svg'
+import { useNavigate } from "react-router-dom";
 
 
-const OrderDelivered = () => {
-	// const [OrdersDelivered, setOrdersDelivered] = useState([])
-	// getOrder()
+export default function OrderDelivered () {
+  const [orderDelivering, setOrderDelivering] = useState([])
+
+  useEffect(() => {
+    getOrder()
+
+  }, [])
+
+
+  const getOrder = () => {
+    const urlApi = 'http://localhost:8080';
+    fetch(`${urlApi}/orders`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer ' + localStorage.getItem('userToken'),
+      }
+    })
+
+      .then(res => res.json())
+
+      .then(data => {
+        console.log("orders delivered", data)
+        const arrOrders = [];
+        data.forEach(order => {
+          if (order.status === "delivered") {
+            const client = order.client
+            const status = order.status
+            const products = order.products
+
+            arrOrders.push({ client, status, products })
+            setOrderDelivering(arrOrders)
+          }
+        })
+        console.log(arrOrders)
+      })
+  }
+ 
+  const navigate = useNavigate();
+  const handleBack = () =>{
+    navigate('/waiter')
+  }
+
 		return (
     <div className="chef">
+      <img className='Back' src={Arrow} alt="Atrás" onClick={handleBack}/>
       <Logout />
       <Restaurant />
-    <header className="header">
-    </header>
+    {/* <header className="header">
+    </header> */}
     <section>
       <div className="order">
         <ul>
@@ -22,27 +65,28 @@ const OrderDelivered = () => {
     </section>
     <div className="data-div-chef">
       <ul >
-        {/* {console.log("selected", listOrders)} */}
-        {/* {OrderDelivered.map((order, index) =>
-          <li key={index} className="data-chef">
-           <p> Cliente: {order.client}</p>
-           
-           {
-            order.products.map((product, i)=> (
-              <div key={i+1000}>
-              <p>Producto: {product.product.name}</p>
-              <p>{}</p>
-              </div>
-            ))
-           }
-           <p>{order.status}</p> */}
-           {/* <button className="listo">Listo</button>
-          </li>
-        )} */}
+        {orderDelivering.map((order, index) =>
+
+            <li key={index} className="data-chef">
+              <p> Cliente: {order.client}</p>
+              <p>Productos</p>
+
+              {
+                order.products.map((product, i) => (
+                  <div key={i + 1000}>
+
+                    <p>{product.qty} x {product.product.name}</p>
+                    <p></p>
+                  </div>
+                ))
+              }
+              <p>{order.status}</p>
+            </li>
+          )}
       </ul>
     </div>
 
     </div>
   )
 }
-export  default OrderDelivered
+//export  default OrderDelivered

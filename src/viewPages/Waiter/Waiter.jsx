@@ -1,15 +1,23 @@
 import Logout from "../../components/Logout";
 import Restaurant from "../../components/Restaurant";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import add from "../../images/add.svg"
 import { ProductsResume } from "../../components/ProductsResume";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "../Modal";
+// import moment from "moment";
 
 
 export default function Waiter() {
   const [products, setProducts] = useState([])
   const [productsSelected, setProductsSelected] = useState([])
   const [client, setClient] = useState("")
+  const [showModal, setShowModal] = useState(false)
+
+  useEffect(() => {
+    validateHttpProducts("Desayuno")
+
+  }, [])
  
   const urlApi = 'http://localhost:8080';
 
@@ -71,6 +79,11 @@ export default function Waiter() {
     validateHttpProducts(menu)
   }
 
+  const navigate = useNavigate();
+  const handleDelivered = () => {
+    navigate("/waiter/OrderDelivered")
+  }
+
   const handleSetProducts = (product) => {
     setProductsSelected([product].concat(productsSelected))
   }
@@ -79,34 +92,23 @@ export default function Waiter() {
     const newArr = productsSelected.filter((item) => item.id !== id);
     setProductsSelected(newArr);
   }
-
-  const navigate = useNavigate();
-  const handleDelivered = () => {
-        navigate("/waiter/OrderDelivered")
-        }
-
-
-
  
   const priceQuantity = productsSelected.map((product) => {
     const pricePerProduct = product.quantity * product.price
     return pricePerProduct;
   })
-
-
-  
-  //console.log("price quantity", priceQuantity)
   
   const priceTotal = priceQuantity.reduce((price1, price2) => price1 + price2 , 0)
-  //console.log("pricetotal", priceTotal)
 
   const handleCancel = () => {
-    setProductsSelected([])
+    // setProductsSelected([])
+    // setClient('')
+    setShowModal(true)
   }
   
 
   const sendOrder = () => {
-    const date = new Date();
+    // const date = moment().format("YYYY-MM-Do HH:mm:ss");;
     const objArray = productsSelected.map((product) => {
       return {
         qty: product.quantity,
@@ -116,22 +118,43 @@ export default function Waiter() {
           "price": product.price,
           "image": product.image,
           "type": product.type,
-          "dateEntry": date
+          "dateEntry": product.dateEntry
         } 
       }
 
     })
     const userID = localStorage.getItem("uid")
-    console.log ("objeto", {
+    return {
       id: Math.random(),
       userId: userID,
       client: client, 
       products: objArray,
       status: "pending", 
-      dataEntry: date, 
-    })
+      // dateEntry: date, 
+    }
  }
-  //  console.log("orden final", sendOrder())
+ 
+const sendOrderAPI = () =>{
+ fetch(`${urlApi}/orders`, {
+  method: 'POST',
+  body: JSON.stringify(sendOrder()), 
+  headers: {
+    'Content-Type': 'application/json',
+    'authorization': 'Bearer ' + localStorage.getItem('userToken'),
+  }
+})
+
+  .then(res => res.json())
+
+  .then(data => {
+   console.log(data)
+   setProductsSelected([])
+   setClient('')
+  })
+  .catch(error => console.error('Error:', error))
+}
+
+
 
   return (
     <div className='waiter'>
@@ -148,7 +171,7 @@ export default function Waiter() {
           <ul>
             <li>CLIENTE</li>
             <li>PRODUCTO</li>
-            <li>PRECIO UD</li>
+            <li>PRECIO C/U</li>
           </ul>
         </div>
         <div className="data">
@@ -186,11 +209,16 @@ export default function Waiter() {
       </section>
       <section>
         <div className="buttonsDelivered">
-        <button className='input-buttons' onClick={sendOrder}>ENVIAR</button>
+        <button className='input-buttons' onClick={sendOrderAPI}>ENVIAR</button>
         <button className='input-buttons' onClick={handleCancel}>CANCELAR</button>
         <button className='input-buttons' onClick={handleDelivered}>PEDIDOS LISTOS</button>
         </div>
       </section>
+      {
+        showModal && (
+          <Modal />
+        )
+      }
     </div>
   )
 }
