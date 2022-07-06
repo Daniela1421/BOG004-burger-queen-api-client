@@ -1,0 +1,43 @@
+.modal-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgb(23, 16, 35);
+	opacity: 0.95;
+	
+}
+
+.card-container {
+	background-color: rgb(255, 255, 255);
+	padding: 40px;
+	position: relative;
+	border-radius: 5px;	
+	opacity: 1;
+}
+
+.card-container h1 {
+	color: rgb(255, 187, 0);
+	padding: 20px;
+}
+
+.button-Modal {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	justify-items: center;
+	width: 200px;
+	padding: 10px 30px;
+	margin: 10px 30px;
+	border-radius: 100px;
+	color: #fff;
+	border: none;
+	background: rgb(255, 187, 0);
+	cursor: pointer;
+	transition: .3s ease all;
+	font-weight: bolder;
+}
+

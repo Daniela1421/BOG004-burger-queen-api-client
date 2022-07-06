@@ -4,8 +4,15 @@ body {
   background: rgb(95, 73, 138);
   /* background: rgb(87, 165, 179); */
   display: flex;
-  justify-content: center;
+  justify-content: center;  
   align-items: center;
+  background-image: url("./images/illustration.svg");
+  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: bottom;
+  background-size: 35em; 
+  
 }
 
 h1 {
@@ -13,35 +20,31 @@ h1 {
 }
 
 h2 {
-  font-size: 1em;
+  font-size: 1.3em;
 }
 
 .login,
 .waiter,
 .chef {
   display: flex;
-  width: 30em;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  margin-top: 5rem;
   color: white;
+  font-weight: bolder;
   background: #31313196;
-  background-image: url("./images/illustration.svg");
-  background-repeat: no-repeat;
-  background-position: bottom;
   border-radius: 10px;
-  background-blend-mode: darken;
   letter-spacing: 1.5px;
   border-bottom: goldenrod solid 3px;
   padding-top: 2em;
 }
 .login {
-  width: 35rem;
+  width: 40rem;
   height: 40rem;
-  margin-top: 8rem;
+  margin-top: 2rem;
   font-size: 12px;
 }
+
 .entrar {
   display: inline-flex;
   align-items: center;
@@ -55,6 +58,7 @@ h2 {
   outline: none;
   border: 0;
   color: white;
+  font-weight: bolder;
   background-color: rgba(0, 0, 0, 0.3);
   border: 1px solid goldenrod;
   
@@ -72,7 +76,7 @@ h2 {
 .logout {
   display: flex;
   justify-content: center;
-  margin-left: 20em;
+  margin-left: 14em;
   width: 90px;
   border-radius: 5px;
   padding: 5px;
@@ -88,13 +92,13 @@ h2 {
 #view-logo {
   display: flex;
   width: 50px;
-  margin-left: 50px;
+  /* margin-left: 50px; */
   align-items: center;
   justify-content: center;
 }
 
 #nameRestaurant {
-  font-size: 20px;
+  font-size: 1.4em;
 }
 
 .input-form {
@@ -306,13 +310,36 @@ h2 {
     display: inline-flex;
     width: 26rem;
   }
-   
+  
+  .buttonAmount {
+    border-radius: 10px;
+    border: 0;
+    color: white;
+    background-color: goldenrod;
+  }
+
+
 
 @media (min-width: 768px) {
   .logout {
     margin-left: 32rem;
     width: 100px;
     border-radius: 5px;
+  }
+
+  .restaurant{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4em;
+  }
+
+  #view-logo{
+    display: flex;
+    width: 5em;
+    justify-content: center;
+    margin: 0%;
   }
 
   .messageError {
@@ -439,5 +466,35 @@ h2 {
     display: inline-flex;
     width: 41rem;
   }
+  
+  .orderWaiter{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #pending, #delivering, #delivered{
+    width: 13em;
+  }
+
+  .header{
+    display: flex;
+    width: 43em;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+  }
+
+  #logout{
+    margin: 0;
+    
+  }
+  
+  .headerWaiter, .headerChef{
+    display: grid;
+    grid-template-columns: 32.8em 2em;
+    align-items: flex-start;
+    width: 39em;
+  }
+
 
 }

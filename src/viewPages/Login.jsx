@@ -29,7 +29,7 @@ const validateHttp = (data) => {
   .then(response => {
     // console.log('Success:', response)
     localStorage.setItem('userToken', response.accessToken)
-    localStorage.setItem('uid', response.user.id)
+    // localStorage.setItem('uid', response.user.id)
     if(response.accessToken && response.user.roles.waiter === true){
       navigate('/waiter')
       localStorage.setItem('userRol', "waiter")
@@ -42,7 +42,7 @@ const validateHttp = (data) => {
     }else{
       switch (response) {
         case "Email and password are required":
-          setError("EL EMAIL Y CONTRASEÑA SON REUQUERIDOS")
+          setError("EL EMAIL Y CONTRASEÑA SON REQUERIDOS")
           break;
         case "Email format is invalid":
           //console.log("format");
@@ -78,7 +78,9 @@ const handleClick = () => {
  
     return (
       <div className='login'>
-        <Restaurant/>
+        <div className="restaurantLogin">
+          <Restaurant/>
+        </div>
         <h2>ACCESO</h2>
         <div>
         <h3> EMAIL </h3>

@@ -4,13 +4,15 @@ import React, { useState, useEffect } from 'react';
 import add from "../../images/add.svg"
 import { ProductsResume } from "../../components/ProductsResume";
 import { useNavigate } from "react-router-dom";
-import moment from "moment";
+import { Modal } from "../Modal";
+// import moment from "moment";
 
 
 export default function Waiter() {
   const [products, setProducts] = useState([])
   const [productsSelected, setProductsSelected] = useState([])
   const [client, setClient] = useState("")
+  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
     validateHttpProducts("Desayuno")
@@ -98,14 +100,23 @@ export default function Waiter() {
   
   const priceTotal = priceQuantity.reduce((price1, price2) => price1 + price2 , 0)
 
-  const handleCancel = () => {
-    setProductsSelected([])
-    setClient('')
+  const handleModal = () => {
+    setShowModal(true)
+    // setProductsSelected([])
+		// setClient('')
   }
+
+  const date = new Date(); 
+  const days = date.getDate() < 10 ? "0" + date.getDate() : date.getDate(); 
+  const months = date.getMonth() < 10 ? "0" + date.getMonth() : date.getMonth(); 
+  const hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours(); 
+  const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
+  const seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds()
+  const dateEntry = date.getFullYear() + "-" + months + "-" + days + " " + hours +  ":" + minutes + ":" + seconds
   
 
   const sendOrder = () => {
-    const date = moment().format("YYYY-MM-Do HH:mm:ss");;
+    // const date = moment().format("YYYY-MM-Do HH:mm:ss");;
     const objArray = productsSelected.map((product) => {
       return {
         qty: product.quantity,
@@ -127,7 +138,7 @@ export default function Waiter() {
       client: client, 
       products: objArray,
       status: "pending", 
-      dateEntry: date, 
+      dateEntry: dateEntry, 
     }
  }
  
@@ -155,8 +166,10 @@ const sendOrderAPI = () =>{
 
   return (
     <div className='waiter'>
-        <Logout />
+      <div className="headerWaiter">
         <Restaurant />
+        <Logout />
+      </div>
       <header>
         <div>
           <button className='input-buttons' id="breakfast" onClick={() => handleClick("Desayuno")} >DESAYUNO</button>
@@ -207,10 +220,15 @@ const sendOrderAPI = () =>{
       <section>
         <div className="buttonsDelivered">
         <button className='input-buttons' onClick={sendOrderAPI}>ENVIAR</button>
-        <button className='input-buttons' onClick={handleCancel}>CANCELAR</button>
+        <button className='input-buttons' onClick={handleModal}>CANCELAR</button>
         <button className='input-buttons' onClick={handleDelivered}>PEDIDOS EN PROCESO</button>
         </div>
       </section>
+      {
+        showModal && (
+          <Modal setProductsSelected={setProductsSelected} setClient={setClient} setShowModal={setShowModal}/>
+        )
+      }
     </div>
   )
 }
