@@ -4,7 +4,6 @@ import Delete from '../images/delete.svg'
 export default function ProductResume({ product, handleDelete, setProductsSelected }) {
 
   const [quantitySt, setQuantitySt] = useState(1);
-  console.log('product de ProductResume', product);
   const priceTotal = quantitySt * product.price;
 
   const handleQuantityAdd = () => {
@@ -63,37 +62,3 @@ export default function ProductResume({ product, handleDelete, setProductsSelect
     </div>
   )
 }
-
-
-  //  const [quantity, setQuantity] = useState(1)
-  // //  const quantityObject = product.quantity = quantity
-  // //  console.log("prueba quantity object", quantityObject)
-  //  console.log("product de ProductResume", product)
-  //  const priceTotal = quantity * product.price; 
-
-
-  //  const handleQuantity = () => {
-  //     setProductsSelected(lastState => {
-  //         const arrFiltered = lastState.filter(productArr => productArr.name !== product.name) 
-  //         const productIndex = lastState.findIndex(productArr => productArr.name === product.name)
-  //         const newObject = { 
-  //             id: product.id,
-  //             name: product.name, 
-  //             price: product.price, 
-  //             quantity: quantity
-  //         }
-  //         return [...arrFiltered, newObject]
-  //      })
-  //  }
-
-  //  console.log("priceTotal", priceTotal)
-
-
-
-
-  //   onClick={() => {
-          //     if (quantity >= 1) { 
-          //     setQuantity(quantity + 1)
-          //   }
-          //     handleQuantity()
-          //   }}

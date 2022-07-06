@@ -14,7 +14,6 @@ export const Modal = ({setProductsSelected, setClient, setShowModal}) => {
 		setShowModal(false)
 	}
 	
-
 		return (
 				<div className='modal-container'>
 					<div className='card-container'>

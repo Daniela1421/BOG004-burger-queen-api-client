@@ -2,7 +2,6 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background: rgb(95, 73, 138);
-  /* background: rgb(87, 165, 179); */
   display: flex;
   justify-content: center;  
   align-items: center;
